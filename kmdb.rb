@@ -105,6 +105,10 @@ batman_begins = Movie.create(title: "Batman Begins", year_released: 2005, rated:
 dark_knight = Movie.create(title: "The Dark Knight", year_released: 2008, rated: "PG-13", studio: warner_bros) 
 the_dark_knight_rises = Movie.create(title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", studio: warner_bros) 
 
+unless movie.persisted?
+    puts "Failed to create movie: #{movie.errors.full_messages.join(', ')}"
+end
+
 #Create actors
 christian_bale = Actor.create(name: "Christian Bale")
 michael_caine = Actor.create(name: "Michael Caine")
@@ -129,11 +133,11 @@ Role.create(movie: dark_knight, actor: heath_ledger, character_name: "Joker")
 Role.create(movie: dark_knight, actor: aaron_eckhart, character_name: "Harvey Dent")
 Role.create(movie: dark_knight, actor: michael_caine, character_name: "Alfred")
 Role.create(movie: dark_knight, actor: maggie_gyllenhaal, character_name: "Rachel Dawes")
-Role.create(movie: batman_begins, actor: christian_bale, character_name: "Bruce Wayne")
-Role.create(movie: batman_begins, actor: gary_oldman, character_name: "Commissioner Gordon")
-Role.create(movie: batman_begins, actor: tom_hardy, character_name: "Bane")
-Role.create(movie: batman_begins, actor: joseph_gordon_levitt, character_name: "John Blake")
-Role.create(movie: batman_begins, actor: anne_hathaway, character_name: "Selina Kyle")
+Role.create(movie: the_dark_knight_rises, actor: christian_bale, character_name: "Bruce Wayne")
+Role.create(movie: the_dark_knight_rises, actor: gary_oldman, character_name: "Commissioner Gordon")
+Role.create(movie: the_dark_knight_rises, actor: tom_hardy, character_name: "Bane")
+Role.create(movie: the_dark_knight_rises, actor: joseph_gordon_levitt, character_name: "John Blake")
+Role.create(movie: the_dark_knight_rises, actor: anne_hathaway, character_name: "Selina Kyle")
 
 
 # Prints a header for the movies output
@@ -146,7 +150,7 @@ puts ""
 
 movies = Movie.all
 movies.each do |movie|
-    puts "#{movie.title} #{movie.year_released}, #{movie.rated} #{movie.studio}"
+    puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.studio.name}"
 end
 
 # Prints a header for the cast output
@@ -157,3 +161,8 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+movies.each do |movie|
+    movie.roles.each do |role|
+        puts "#{movie.title} #{role.actor.name} #{role.character_name}"
+    end
+end
