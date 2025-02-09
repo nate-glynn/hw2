@@ -77,8 +77,26 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
+
+
 # Generate models and tables, according to the domain model.
 # TODO!
+#Utilized the following scripts in terminal to create the tables
+#---- rails generate model Stuid name:string
+#---- rails generate model Movie title:sting year_released:integer rated:string studio:references
+#---- rails generate model Actor name:string
+#---- rails generate model Role movie:references actor:references character_name:string
+
+
+#Create a studio
+
+warner_bros = Studio.create(name: "Warner Bros.")
+
+
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
