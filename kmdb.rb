@@ -279,7 +279,18 @@ role14.save
 role15 = Role.new
 role15["movie_id"] = dark_knight_rises.id
 role15["actor_id"] = anne_hathaway.id
-role15["character_name"] 
+role15["character_name"] = "Selina Kyle"
+role15.save
+
+#Code to verify all roles were correctly entered in the table
+#roles=Role.all
+#roles.each do |role|
+#   movie_title = role.movie.title
+#   actor_name = role.actor.name
+#   character_name = role.character_name
+#
+#  puts "Movie: #{movie_title} | Actor: #{actor_name} | Character: #{character_name}"
+#end
 
 # Prints a header for the movies output
 puts "Movies"
@@ -291,7 +302,7 @@ puts ""
 
 movies = Movie.all
 movies.each do |movie|
-   puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.studio.name}"
+    puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.studio.name}"
 end
 
 # Prints a header for the cast output
@@ -302,8 +313,12 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
-movies.each do |movie|
-   movie.roles.each do |role|
-      puts "#{movie.title} #{role.actor.name} #{role.character_name}"
- end
+roles=Role.all
+
+roles.each do |role|
+   movie_title = role.movie.title.ljust(30)
+   actor_name = role.actor.name.ljust(40)
+   character_name = role.character_name
+
+  puts "#{movie_title} #{actor_name} #{character_name}"
 end
