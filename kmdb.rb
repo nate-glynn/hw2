@@ -119,7 +119,21 @@ joseph_gordon_levitt = Actor.create(name: "Joseph Gordon-Levitt")
 anne_hathaway = Actor.create(name: "Anne Hathaway")
 
 #Create roles for the movies
-role.create(movie: batman_begins, actor: christian_bale, character_name: "Bruce Wayne")
+Role.create(movie: batman_begins, actor: christian_bale, character_name: "Bruce Wayne")
+Role.create(movie: batman_begins, actor: michael_caine, character_name: "Alfred")
+Role.create(movie: batman_begins, actor: liam_neeson, character_name: "Ra's Al Ghul")
+Role.create(movie: batman_begins, actor: katie_holmes, character_name: "Rachel Dawes")
+Role.create(movie: batman_begins, actor: gary_oldman, character_name: "Commissioner Gordon")
+Role.create(movie: dark_knight, actor: christian_bale, character_name: "Bruce Wayne")
+Role.create(movie: dark_knight, actor: heath_ledger, character_name: "Joker")
+Role.create(movie: dark_knight, actor: aaron_eckhart, character_name: "Harvey Dent")
+Role.create(movie: dark_knight, actor: michael_caine, character_name: "Alfred")
+Role.create(movie: dark_knight, actor: maggie_gyllenhaal, character_name: "Rachel Dawes")
+Role.create(movie: batman_begins, actor: christian_bale, character_name: "Bruce Wayne")
+Role.create(movie: batman_begins, actor: gary_oldman, character_name: "Commissioner Gordon")
+Role.create(movie: batman_begins, actor: tom_hardy, character_name: "Bane")
+Role.create(movie: batman_begins, actor: joseph_gordon_levitt, character_name: "John Blake")
+Role.create(movie: batman_begins, actor: anne_hathaway, character_name: "Selina Kyle")
 
 
 # Prints a header for the movies output
