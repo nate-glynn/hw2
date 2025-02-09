@@ -85,22 +85,42 @@ Role.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
-#Utilized the following scripts in terminal to create the tables
-#---- rails generate model Stuid name:string
+#Ran the following scripts in terminal to create the tables
+#---- rails generate model Studio name:string
 #---- rails generate model Movie title:sting year_released:integer rated:string studio:references
 #---- rails generate model Actor name:string
 #---- rails generate model Role movie:references actor:references character_name:string
 
 
-#Create a studio
-
-warner_bros = Studio.create(name: "Warner Bros.")
-
-
-
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+
+#Create studio(s) 
+warner_bros = Studio.create(name: "Warner Bros.")
+
+#Create the 3 movies in the database
+batman_begins = Movie.create(title: "Batman Begins", year_released: 2005, rated: "PG-13", studio: warner_bros) 
+dark_knight = Movie.create(title: "The Dark Knight", year_released: 2008, rated: "PG-13", studio: warner_bros) 
+the_dark_knight_rises = Movie.create(title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", studio: warner_bros) 
+
+#Create actors
+christian_bale = Actor.create(name: "Christian Bale")
+michael_caine = Actor.create(name: "Michael Caine")
+liam_neeson = Actor.create(name: "Liam Neeson")
+katie_holmes = Actor.create(name: "Katie Holmes")
+gary_oldman = Actor.create(name: "Gary Oldman")
+heath_ledger = Actor.create(name: "Heath Ledger")
+aaron_eckhart = Actor.create(name: "Aaron Eckhart")
+maggie_gyllenhaal = Actor.create(name: "Maggie Gyllenhaal")
+tom_hardy = Actor.create(name: "Tom Hardy")
+joseph_gordon_levitt = Actor.create(name: "Joseph Gordon-Levitt")
+anne_hathaway = Actor.create(name: "Anne Hathaway")
+
+#Create roles for the movies
+role.create(movie: batman_begins, actor: christian_bale, character_name: "Bruce Wayne")
+
 
 # Prints a header for the movies output
 puts "Movies"
@@ -109,6 +129,11 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+movies = Movie.all
+movies.each do |movie|
+    puts "#{movie.title} #{movie.year_released}, #{movie.rated} #{movie.studio}"
+end
 
 # Prints a header for the cast output
 puts ""
