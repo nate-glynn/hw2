@@ -4,7 +4,7 @@ class CreateMovies < ActiveRecord::Migration[7.1]
       t.string :title
       t.integer :year_released
       t.string :rated
-      t.references :studio, foreign_key: true
+      t.references :studio 
 
       t.timestamps
     end

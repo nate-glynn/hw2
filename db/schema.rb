@@ -43,7 +43,4 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_09_154343) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "movies", "studios"
-  add_foreign_key "roles", "actors"
-  add_foreign_key "roles", "movies"
 end
