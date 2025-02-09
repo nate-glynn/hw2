@@ -96,7 +96,6 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-
 #Create studio(s) 
 warner_bros = Studio.create(name: "Warner Bros.")
 
@@ -104,10 +103,6 @@ warner_bros = Studio.create(name: "Warner Bros.")
 batman_begins = Movie.create(title: "Batman Begins", year_released: 2005, rated: "PG-13", studio: warner_bros) 
 dark_knight = Movie.create(title: "The Dark Knight", year_released: 2008, rated: "PG-13", studio: warner_bros) 
 the_dark_knight_rises = Movie.create(title: "The Dark Knight Rises", year_released: 2012, rated: "PG-13", studio: warner_bros) 
-
-unless movie.persisted?
-    puts "Failed to create movie: #{movie.errors.full_messages.join(', ')}"
-end
 
 #Create actors
 christian_bale = Actor.create(name: "Christian Bale")
@@ -148,10 +143,10 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
-movies = Movie.all
-movies.each do |movie|
-    puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.studio.name}"
-end
+#movies = Movie.all
+#movies.each do |movie|
+ #   puts "#{movie.title} #{movie.year_released} #{movie.rated} #{movie.studio.name}"
+#end
 
 # Prints a header for the cast output
 puts ""
@@ -161,8 +156,8 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
-movies.each do |movie|
-    movie.roles.each do |role|
-        puts "#{movie.title} #{role.actor.name} #{role.character_name}"
-    end
-end
+#movies.each do |movie|
+ #   movie.roles.each do |role|
+  #      puts "#{movie.title} #{role.actor.name} #{role.character_name}"
+   # end
+#end
