@@ -84,7 +84,10 @@ Role.destroy_all
 
 # Generate models and tables, according to the domain model.
 # TODO!
-#rails generate model Studio
+# In terminal, run the following commands:
+# rails db:drop
+# rails db:create
+# rails db:migrate
 
 
 
